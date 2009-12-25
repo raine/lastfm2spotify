@@ -98,9 +98,15 @@ tracks.each_with_index do |t,i|
   spotify_ids << track.spotify_id if track
 end
 
-IO.popen('pbcopy', 'r+') do |clipboard|
+cmd = case RUBY_PLATFORM
+when /darwin/ then 'pbcopy'
+when /mswin/  then 'clip'
+when /linux/  then 'xclip' # no idea if this works
+end
+
+IO.popen(cmd, 'r+') do |clipboard|
   clipboard.puts spotify_ids.join(" ")
 end
 
 puts
-puts "Done! Now create a new playlist or open an existing one in Spotify and paste (Command-V)"
+puts "Done! Now create a new playlist or open an existing one in Spotify and just paste"
