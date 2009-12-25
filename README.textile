@@ -1,7 +1,7 @@
 h2. lastfm2spotify
 
 Tiny script that helps at converting your loved tracks on Last.fm to a Spotify playlist.
-It will basically add songs it can find as Spotify URLs to your clipboard which is then pasteable to Spotify.
+It will basically add songs as Spotify URIs to your clipboard which is then pasteable to Spotify.
 
 h3. Usage
 
